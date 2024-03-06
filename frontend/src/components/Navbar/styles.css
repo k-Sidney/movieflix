@@ -1,14 +1,20 @@
 .main-nav {
-  padding-left: 40px;
+  padding-left: 20px;
   min-height: 70px;
 }
 
-.nav-logo-text {
-  color: #fff;
+.navbar-toggler {
+  display: none;
 }
 
-.nav-logo-text:hover {
-  color: #fff;
+.nav-logo-text h4 {
+  color: #000;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: -0.015em;
+  text-align: left;
 }
 
 .main-menu {
@@ -30,4 +36,19 @@
 
 .main-menu a:hover {
   color: #fff;
+}
+
+.nav-logout {
+  color: #000;
+  border: 2px solid black;
+  border-radius: 4px;
+  min-width: 100px;
+}
+
+.nav-logout a {
+  padding-left: 32px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: Open Sans;
+  text-align: center;
 }
