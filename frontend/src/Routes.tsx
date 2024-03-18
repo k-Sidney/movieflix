@@ -15,10 +15,7 @@ const Routes = () => (
       <Route path="/movies" exact>
         <List />
       </Route>
-      <Route path="/movies/:movieId">
-        <Details />
-      </Route>
-      <Route path="/details">
+      <Route path="/details/:movieId/reviews">
         <Details />
       </Route>
     </Switch>

@@ -1,0 +1,52 @@
+.product-filter-form {
+  width: 290px;
+  background-color: #6c6c6c;
+  padding: 5px 15px;
+}
+
+.movie-filter-select__control {
+  border: 1px solid #e1e1e1;
+  border-radius: 4px !important;
+}
+
+.movie-filter-select__placeholder {
+  font-family: Open Sans !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+  text-align: left !important;
+  color: #ffffff !important;
+}
+
+.movie-filter-select__single-value {
+  font-family: Open Sans !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+  text-align: left !important;
+  color: #ffffff !important;
+}
+
+.movie-filter-select__indicator-separator {
+  display: none !important;
+}
+
+.movie-filter-select__indicators {
+  border-left-color: #6c6c6c !important;
+}
+
+.movie-filter-select__value-container {
+  background-color: #6c6c6c;
+}
+
+.movie-filter-select__indicators {
+  background-color: #6c6c6c;
+}
+
+@media (min-width: 576px) {
+.product-filter-form{
+    padding: 0!important;
+    padding-left: 20px!important;
+}
+
+}

@@ -89,14 +89,17 @@
     margin-top: 70px;
   }
 
-  .login-box form {
-    padding-left: 45px;
-  }
 }
 
 @media (min-width: 768px) {
   .home-container {
     margin-left: 145px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-container {
+    margin-left: 250px;
   }
 }
 
@@ -155,5 +158,16 @@
     padding-top: 250px;
     padding-left: 45px;
     width: 100%;
+  }
+
+  .login-box form {
+    padding-left: 49px;
+  }
+}
+
+@media (min-width: 1400px) {
+
+  .home-login-container {
+    margin-left: 75%;
   }
 }

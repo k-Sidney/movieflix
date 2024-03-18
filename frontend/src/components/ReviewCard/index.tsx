@@ -49,7 +49,7 @@ const ReviewCard = () => {
         </div>
       </div>
       <div key={item.id} className="review-text-container">
-        <p key={item.id}>{item.text}</p>
+        <p key={item.id} className="breakAll">{item.text}</p>
       </div>
     </div>
     ))}

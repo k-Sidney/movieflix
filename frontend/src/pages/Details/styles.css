@@ -1,8 +1,14 @@
-.main-container {
+.main-container-details {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.movie-card {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .Avaliação {
@@ -29,20 +35,152 @@
   margin-bottom: 20px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
+  .movie-card {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
   .Avaliação {
-    width: 1127px;
-    height: 165px;
+    width: 536px;
+    height: 157px;
+  }
+
+  .main-container-details input {
+    width: 496px !important;
+    height: 50px;
   }
 
   .reviews-card {
-    width: 1132px;
+    width: 536px !important;
+  }
+
+  .review-card {
+    width: 496px;
+    margin-left: 20px;
+  }
+
+  .name-container h4 {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-align: left;
+  }
+
+  .img-container {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .img-container img {
+    width: 12.95px;
+    height: 15.34px;
+  }
+
+  .username-container {
+    padding-top: 10px;
+    margin-top: 15px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .Avaliação {
+    width: 688px;
+    height: 200px;
+  }
+
+  .main-container-details {
+    margin-bottom: 30px;
+  }
+
+  .main-container-details input {
+    width: 608px !important;
+    height: 50px;
+  }
+
+  .reviews-card {
+    width: 536px !important;
+  }
+
+  .review-card {
+    width: 622px;
+    margin-left: 30px;
+  }
+
+  .name-container h4 {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-align: left;
+  }
+
+  .img-container {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .img-container img {
+    width: 12.95px;
+    height: 15.34px;
+  }
+
+  .username-container {
+    padding-top: 10px;
+    margin-top: 15px !important;
+  }
+
+  .reviews-card {
+    width: 688px !important;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .Avaliação {
+    width: 912px;
+    height: 200px;
+  }
+
+  .reviews-card {
+    width: 912px !important;
     height: 100%;
   }
 
   .save-option {
     padding-left: 360px;
     padding-bottom: 15px;
+  }
+
+  .main-container-details input {
+    width: 832px !important;
+  }
+
+  .review-card {
+    width: 832px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Avaliação {
+    width: 1127px;
+    height: 165px;
+    margin-top: 0;
+  }
+
+  .reviews-card {
+    width: 1132px !important;
+    height: 100%;
+  }
+
+  .save-option {
+    padding-left: 360px;
+    padding-bottom: 15px;
+  }
+
+  .review-card {
+    width: 1080px;
   }
 }
 

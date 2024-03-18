@@ -1,28 +1,50 @@
-import { Link } from 'react-router-dom';
 
 import './styles.css';
 import { Movie } from 'types/movie';
 import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { SpringPage } from 'types/vendor/spring';
+import MovieCard from 'components/MovieCard';
+import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
+import Pagination from 'components/Pagination';
+
+type ControlComponentsData = {
+  activePage: number;
+  filterData: MovieFilterData;
+};
 
 const List = () => {
-  //FORMA INCORRETA
-  //let movie : Movie;
-
-  //FORMA INCORRETA
 
   const [page, setPage] = useState<SpringPage<Movie>>();
 
-  useEffect(() => {
+  const [controlComponentsData, setControlComponentsData] =
+  useState<ControlComponentsData>({
+    activePage: 0,
+    filterData: { name: '', genre: null },
+  });
+
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
+  };
+
+  const handleSubmitFilter = (data: MovieFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data});
+  };
+
+  const getMovies = useCallback(() => {
     const params: AxiosRequestConfig = {
       method: 'GET',
-      url: '/movies',
+      url: '/movies?sort=title',
       withCredentials: true,
+      
+
       params: {
-        page: 0,
-        size: 2,
+        page: controlComponentsData.activePage,
+        size: 4,
+        name: controlComponentsData.filterData.name,
+        genreId: controlComponentsData.filterData.genre?.id,
+        
       },
     };
 
@@ -30,40 +52,35 @@ const List = () => {
       setPage(response.data);
       console.log(page);
     });
-  }, []);
+  } ,[controlComponentsData]);
 
-  /*axios.get(BASE_URL + "/movies/1" )
-  .then(response  => {
-    console.log(response.data)
-  });*/
 
-  /* const movie = {
-    id: 1,
-    title: 'Bob Esponja',
-    subTitle: 'O Incrível Resgate',
-    year: 2020,
-    imgUrl:
-      'https://image.tmdb.org/t/p/w533_and_h300_bestv2/wu1uilmhM4TdluKi2ytfz8gidHf.jpg',
-    synopsis:
-      'Onde está Gary? Segundo Bob Esponja, Gary foi "caracolstrado" pelo temível Rei Poseidon e levado para a cidade perdida de Atlantic City. Junto a Patrick Estrela, ele sai em uma missão de resgate ao querido amigo, e nesta jornada os dois vão conhecer novos personagens e viver inimagináveis aventuras.',
-    genre: {
-      id: 1,
-      name: 'Comédia',
-    },
-  };*/
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
 
   return (
     <div className="main-container">
       <div className="title-container">
-        <h1>Tela listagem de filmes</h1>
+      <MovieFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="container-list">
-        <Link to="/movies/1">
-          <h1>Acessar /movies/1</h1>
-        </Link>
-        <Link to="/movies/2">
-          <h1>Acessar /movies/2</h1>
-        </Link>
+      <div className="row list-row">
+        {page?.content.map((movie) => (
+          <div key={movie.id} className="col-sm-6 col-md-6 col-lg-6 col-xl-3 movie-list">
+            <MovieCard
+              movie={movie}
+            />
+          </div>
+        ))}
+      </div>
+      </div>
+      <div className="row pagination-container">
+        <Pagination
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={handlePageChange}
+        />
       </div>
     </div>
   );

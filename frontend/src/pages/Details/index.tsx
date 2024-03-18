@@ -7,6 +7,7 @@ import { hasAnyRoles } from 'util/auth';
 import { useParams } from 'react-router-dom';
 import ReviewForm from 'components/ReviewForm';
 import StarImg from 'assets/images/star.png';
+import MovieDetailsCard from 'components/MovieDetailsCard';
 
 type urlParams = {
   movieId: string;
@@ -40,19 +41,16 @@ const Details = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className="title-container">
-        <h1>Tela de Detalhes de Filme</h1>
-      </div>
+    <div className="main-container-details">
+      <MovieDetailsCard />
       {hasAnyRoles(['ROLE_MEMBER']) && (
         <div className="Avaliação">
           <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
         </div>
       )}
-      ;
       <div className="reviews-card">
         {reviews.map((item) => (
-          <div key={item.id } className="review-card">
+          <div key={item.id} className="review-card">
             <div key={item.id} className="username-container">
               <div key={item.id} className="img-container">
                 <img key={item.id} src={StarImg} alt="Estrela" />

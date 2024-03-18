@@ -4,6 +4,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+p{
+  word-wrap: break-word;
+}
+
 h1,
 h2,
 h3,
@@ -13,6 +17,12 @@ h6 {
   margin-bottom: 0;
   font-weight: 700;
   color: #FFF;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 a,
